@@ -58,5 +58,8 @@ public class HelloControllerTest {
                     .andExpect(status().isOk())
                     .andExpect(jsonPath("$.name", is(name)))
                     .andExpect(jsonPath("$.amount", is(amount)));
+        // ORM = Object Relational Mapping
+        // Ibatis는 SQL Mapper, JPA는 ORM
+        // JPA 는 관계형 데이터베이스와 객체지향 프로그래밍 중간에서 패러다임의 일치역할을 함.
     }
 }
