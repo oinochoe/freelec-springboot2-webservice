@@ -22,6 +22,8 @@ public class PostsService {
         return postsRepository.save(requestDto.toEntity()).getId();
     }
 
+    // 데이터베이스에 쿼리를 날리는 부분이 없습니다. -> JPA 영속성 컨텐츠 때문임.
+    // 영속성 컨텍스트란, 엔티티를 영구 저장하는 환경입니다. 일종의 논리적 개념 / JPA의 핵심 내용은 엔티티가 영속성 컨텍스트에 포함되어있냐 아니냐로 갈립니다.
     @Transactional
     public Long update(Long id, PostsUpdateRequestDto requestDto) {
         Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
