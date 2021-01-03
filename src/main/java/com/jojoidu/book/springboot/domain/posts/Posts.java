@@ -32,6 +32,14 @@ public class Posts {
         this.content = content;
         this.author = author;
     }
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
+
+
+
 }
 
 // 기본적인 구조는 생성자를 통해 값을 채운 후 DB에 삽입...
