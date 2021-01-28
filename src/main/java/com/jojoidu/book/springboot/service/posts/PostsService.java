@@ -2,12 +2,15 @@ package com.jojoidu.book.springboot.service.posts;
 
 import com.jojoidu.book.springboot.domain.posts.Posts;
 import com.jojoidu.book.springboot.domain.posts.PostsRepository;
+import com.jojoidu.book.springboot.web.dto.PostsListResponseDto;
 import com.jojoidu.book.springboot.web.dto.PostsResponseDto;
 import com.jojoidu.book.springboot.web.dto.PostsSaveRequestDto;
 import com.jojoidu.book.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
+import java.util.stream.Collectors;
 
 // autowired가 없지만 autowire와 setter로 빈을 주입받는 것보다 생성자로 주입받는게 낫기 때문에 없다...
 @RequiredArgsConstructor // 얘가 바로 생성자!! final이 선언된 모든 필드를 인자값으로 하는 생성자를 롬복 @RequiredArgsContructor가 대신 생성해줌..
@@ -37,4 +40,12 @@ public class PostsService {
 
         return new PostsResponseDto(entity);
     }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findAllDesc() {
+        return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
 }
