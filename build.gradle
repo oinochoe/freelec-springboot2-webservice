@@ -32,6 +32,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.projectlombok:lombok')
     compile('org.springframework.boot:spring-boot-starter-data-jpa') // 스프링 부트용 Spring Data Jpa 추상화 라이브러리
+    compile('org.springframework.boot:srping-boot-starter-oauth2-client') // 소셜 로그인 관련 의존성
     compile('com.h2database:h2') // 인메모리 관계형 데이터베이스 , 애플리케이션 실행시마다 초기화됨..
     compile('org.springframework.boot:spring-boot-starter-mustache') // mustache 설치 (스프링부트에서 공식 지원하는 템플릿 엔진)
     annotationProcessor('org.projectlombok:lombok')
