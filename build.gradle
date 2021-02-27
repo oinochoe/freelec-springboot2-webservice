@@ -35,6 +35,7 @@ dependencies {
     compile('com.h2database:h2') // 인메모리 관계형 데이터베이스 , 애플리케이션 실행시마다 초기화됨..
     compile('org.springframework.boot:spring-boot-starter-mustache') // mustache 설치 (스프링부트에서 공식 지원하는 템플릿 엔진)
     compile('org.springframework.boot:spring-boot-starter-oauth2-client') // 소셜 로그인 관련 의존성
+    compile('org.springframework.session:spring-session-jdbc') // 세션 저장소
 
     annotationProcessor('org.projectlombok:lombok')
 
