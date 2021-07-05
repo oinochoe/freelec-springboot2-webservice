@@ -12,7 +12,6 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
     // 그래서 보면 Posts와 같은선상에 PostsRepository가 있는 것입니다.
     // Entity 클래스는 기본 Repository 없이는 제대로 역할을 할 수가 없습니다.
     // 그래서 Domain 패키지를 만들어 함께 관리하는 것입니다.
-    // 테스트코드를 검증하세요.
     @Query("SELECT p FROM Posts p ORDER BY p.id DESC")
     List<Posts> findAllDesc();
 }
