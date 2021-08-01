@@ -21,3 +21,4 @@ public class HelloController {
     }
 }
 // WAS를 실행하지 않고 테스트코드로 먼저 검증하시오.
+// 자동화 테스트
