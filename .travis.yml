@@ -14,6 +14,22 @@ cache:
 
 script: "./gradlew clean build"
 
+before_deploy:
+  - zip -r freelec-springboot2-webservice *
+  - mkdir -p deploy
+  - mv freelec-springboot2-webservice.zip deploy/freelec-springboot2-webservice.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # TRAVIS setting
+    secret_access_key: $AWS_SECRET_KEY # TRAVIS setting
+    bucket: freelecs-springboot-build
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private # zip file access private
+    local_dir: deploy # before_deploy making directory
+    wait-until-deployed: true
+
 # CI 실행 완료 시 메일로 알람
 notifications:
   email:
